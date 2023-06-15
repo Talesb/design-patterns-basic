@@ -13,7 +13,7 @@ public class DiscountTest {
 	public static void main(String[] args) {
 		
 		Budget firstBudget = new Budget(new BigDecimal("200"),6);
-		Budget secondBudget = new Budget(new BigDecimal("1000"),4);
+		Budget secondBudget = new Budget(new BigDecimal("1000"),1);
 		
 		
 		
