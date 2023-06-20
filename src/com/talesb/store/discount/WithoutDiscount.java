@@ -9,9 +9,14 @@ public class WithoutDiscount extends Discount{
 	public WithoutDiscount() {
 		super(null);
 	}
+ 
+	@Override
+	protected boolean canCalculate(Budget budget) {
+		return true;
+	}
 
-	public BigDecimal calculate(Budget budget) {
-		 
+	@Override
+	protected BigDecimal performCalculation(Budget budget) {
 		return BigDecimal.ZERO;
 	}
 
