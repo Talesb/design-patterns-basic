@@ -29,17 +29,6 @@ public class GenerateOrder {
 		return budgetItemsQuantity;
 	}
 
-	public void doExecute() {
-		Budget budget = new Budget(this.budgetValue, this.budgetItemsQuantity);
 
-		Order order = new Order(this.customer, LocalDateTime.now(), budget);
-
-		// Call a repository to save
-		System.out.println("Saving infos...");
-
-		// Call a email service
-		System.out.println("Sending an Email with order infos..");
-
-	}
 
 }

@@ -3,6 +3,7 @@ package com.talesb.store;
 import java.math.BigDecimal;
 
 import com.talesb.store.order.GenerateOrder;
+import com.talesb.store.order.GenerateOrderHandler;
 
 public class OrderTest {
 
@@ -15,7 +16,8 @@ public class OrderTest {
 
 		GenerateOrder generateOrder = new GenerateOrder(customer, budgetValue, budgetItemQuantity);
 
-		generateOrder.doExecute();
+		GenerateOrderHandler handler = new GenerateOrderHandler();
+		handler.doExecute(generateOrder);
 		
 	}
 
