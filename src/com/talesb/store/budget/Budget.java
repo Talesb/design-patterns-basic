@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import com.talesb.store.budget.situation.Analyzing;
 import com.talesb.store.budget.situation.BudgetSituation;
+import com.talesb.store.budget.situation.Finished;
 
 public class Budget {
 
@@ -42,15 +43,14 @@ public class Budget {
 	public void approve() {
 		this.budgetSituation.approve(this);
 	}
-	
+
 	public void dispapprove() {
 		this.budgetSituation.disapprove(this);
 	}
-	
+
 	public void conclude() {
 		this.budgetSituation.conclude(this);
 	}
-	
 
 	public BudgetSituation getBudgetSituation() {
 		return budgetSituation;
@@ -58,6 +58,10 @@ public class Budget {
 
 	public void setBudgetSituation(BudgetSituation budgetSituation) {
 		this.budgetSituation = budgetSituation;
+	}
+
+	public boolean isFinished() {
+		return budgetSituation instanceof Finished;
 	}
 
 }
