@@ -1,6 +1,8 @@
 package com.talesb.store.budget;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.talesb.store.budget.situation.Analyzing;
 import com.talesb.store.budget.situation.BudgetSituation;
@@ -9,22 +11,18 @@ import com.talesb.store.budget.situation.Finished;
 public class Budget {
 
 	private BigDecimal value;
-	private int itemQuantity;
+	private List<BudgetItem> items;
 	private BudgetSituation budgetSituation;
 
 	public Budget(BigDecimal value, int itemQuantity) {
 		super();
-		this.value = value;
-		this.itemQuantity = itemQuantity;
+		this.value = BigDecimal.ZERO;
+		this.items = new ArrayList<>();
 		this.budgetSituation = new Analyzing();
 	}
 
 	public int getItemQuantity() {
-		return itemQuantity;
-	}
-
-	public void setItemQuantity(int itemQuantity) {
-		this.itemQuantity = itemQuantity;
+		return this.items.size();
 	}
 
 	public Budget(BigDecimal value) {
@@ -62,6 +60,11 @@ public class Budget {
 
 	public boolean isFinished() {
 		return budgetSituation instanceof Finished;
+	}
+
+	public void addItem(BudgetItem item) {
+		this.value = value.add(item.getValue());
+		this.items.add(item);
 	}
 
 }
