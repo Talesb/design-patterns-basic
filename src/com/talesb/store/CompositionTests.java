@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import com.talesb.store.budget.Budget;
 import com.talesb.store.budget.BudgetItem;
+import com.talesb.store.budget.BudgetProxy;
 
 public class CompositionTests {
 
@@ -17,8 +18,11 @@ public class CompositionTests {
 		newBudget.addItem(new BudgetItem(new BigDecimal("500")));
 		newBudget.addItem(oldBudget);
 		
-		System.out.println(newBudget.getValue());
-		System.out.println(newBudget.getValue());
+		
+		BudgetProxy proxy = new BudgetProxy(newBudget);
+		
+		System.out.println(proxy.getValue());
+		System.out.println(proxy.getValue());
 		
 		
 		
