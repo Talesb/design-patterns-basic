@@ -8,13 +8,13 @@ import com.talesb.store.budget.situation.Analyzing;
 import com.talesb.store.budget.situation.BudgetSituation;
 import com.talesb.store.budget.situation.Finished;
 
-public class Budget {
+public class Budget implements Budgetable {
 
 	private BigDecimal value;
-	private List<BudgetItem> items;
+	private List<Budgetable> items;
 	private BudgetSituation budgetSituation;
 
-	public Budget(BigDecimal value, int itemQuantity) {
+	public Budget() {
 		super();
 		this.value = BigDecimal.ZERO;
 		this.items = new ArrayList<>();
@@ -62,7 +62,7 @@ public class Budget {
 		return budgetSituation instanceof Finished;
 	}
 
-	public void addItem(BudgetItem item) {
+	public void addItem(Budgetable item) {
 		this.value = value.add(item.getValue());
 		this.items.add(item);
 	}

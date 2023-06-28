@@ -1,20 +1,18 @@
 package com.talesb.store.order;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.List;
 
-import com.talesb.store.budget.Budget;
+import com.talesb.store.budget.Budgetable;
 
 public class GenerateOrder {
 
 	private String customer;
-	private BigDecimal budgetValue;
-	private int budgetItemsQuantity;
+	private List<Budgetable> items;
 
-	public GenerateOrder(String customer, BigDecimal budgetValue, int budgetItemsQuantity) {
+	public GenerateOrder(String customer, List<Budgetable> items) {
 		this.customer = customer;
-		this.budgetValue = budgetValue;
-		this.budgetItemsQuantity = budgetItemsQuantity;
+		this.items = items;
 	}
 
 	public String getCustomer() {
@@ -22,13 +20,22 @@ public class GenerateOrder {
 	}
 
 	public BigDecimal getBudgetValue() {
-		return budgetValue;
+		return this.items.stream().map(budgetItem -> budgetItem.getValue()).reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 
 	public int getBudgetItemsQuantity() {
-		return budgetItemsQuantity;
+		return this.items.size();
 	}
 
+	public List<Budgetable> getItems() {
+		return items;
+	}
 
+	public void setItems(List<Budgetable> items) {
+		this.items = items;
+	}
 
+	
+	
+	
 }
