@@ -18,6 +18,7 @@ public class CompositionTests {
 		newBudget.addItem(oldBudget);
 		
 		System.out.println(newBudget.getValue());
+		System.out.println(newBudget.getValue());
 		
 		
 		
