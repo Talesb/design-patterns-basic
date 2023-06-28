@@ -2,7 +2,7 @@ package com.talesb.store.budget;
 
 import java.math.BigDecimal;
 
-public class BudgetProxy extends Budget{
+public class BudgetProxy implements Budgetable{
 
 	private BigDecimal value;
 	private Budget budget;
